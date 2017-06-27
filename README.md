@@ -8,7 +8,7 @@ You can contribute by sending merge requests and/or issues on this github openso
 
 ## Demo:
 
-GIF with live attack
+[![asciicast](https://asciinema.org/a/cQ3RF8VO3fCt0bl1WgkOepIwf.png)](https://asciinema.org/a/cQ3RF8VO3fCt0bl1WgkOepIwf)
 
 ## Usage:
 
