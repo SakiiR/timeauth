@@ -23,8 +23,8 @@ pip install timeauth
 ### Examples
 
 Suppose that we have a listenning tcp service on `localhost:1337` waiting for a password input. 
-What if the code behin this TCP service have been done by a weird developer and checks your input char by char
-and sleeping each time it checks your char ( or do a BIG Action on his server that take some times  ).
+What if the code behind this TCP service have been done by a weird developer and checks your input char by char
+and sleeping each time it checks your char ( or do a BIG action on his server that take some time ).
 
 ```sh
 > nc localhost 1337

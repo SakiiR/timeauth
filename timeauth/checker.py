@@ -93,6 +93,7 @@ class TimeAuthChecker(object):
                 best_candidate = self._charset[timings.index(max(timings))]
                 self._log(progress, offset, char, t1, t2, timings, i, best_candidate)
             found_char = self._charset[timings.index(max(timings))]
+            self._token[offset] = found_char
             log.success("Found Char: %d:%x:%c - Best: %s - Avg: %s" % (
                 ord(found_char),
                 ord(found_char),
@@ -100,6 +101,7 @@ class TimeAuthChecker(object):
                 max(timings),
                 self._avg(timings)
             ))
+        progress.success("DONE! %s" % (self.get_token()))
 
     def print_token(self):
-        log.success("Your token : [%s]" % (''.join(self._token)))
+        log.success("Your token : [%s]" % self.get_token())
