@@ -3,3 +3,4 @@ __pycache__/
 demo.json
 *.egg-info/
 .eggs/
+tests/rootme.py
