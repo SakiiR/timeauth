@@ -1,4 +1,4 @@
-# timeauth
+# Time Authentication Attack Tool
 
 Python Time Based Authentication Attack Tool
 
@@ -8,7 +8,7 @@ You can contribute by sending merge requests and/or issues on this github openso
 
 ## Demo:
 
-![Alt Text](./demo.gif)
+[![asciicast](https://asciinema.org/a/126628.png)](https://asciinema.org/a/126628)
 
 ## Usage:
 
@@ -83,5 +83,8 @@ if __name__ == "__main__":
     a.process()
     a.print_token()
 ```
+### Todo
 
+* Add a Time Based SQL Injection Module
+* Add a Blind SQL Injection Module
 
