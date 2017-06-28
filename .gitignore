@@ -1,2 +1,5 @@
 .ropeproject/
 __pycache__/
+demo.json
+*.egg-info/
+.eggs/
