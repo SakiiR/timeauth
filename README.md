@@ -17,7 +17,10 @@ You can contribute by sending merge requests and/or issues on this github openso
 You can install this package by launching:
 
 ```sh
-pip install timeauth
+> git clone git@github.com:SakiiR/timeauth.git
+[...]
+> pip install ./timeauth/
+> # Done
 ```
 
 ### Examples
