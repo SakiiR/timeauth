@@ -8,6 +8,7 @@ You can contribute by sending merge requests and/or issues on this github openso
 
 ## Demo:
 
+https://asciinema.org/a/126529
 ![Alt Text](./demo.gif)
 
 ## Usage:
