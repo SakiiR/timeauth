@@ -16,7 +16,8 @@ class TimeAuthChecker(object):
                  charset=DEFAULT_CHARSET,
                  token_length=DEFAULT_TOKEN_LENGTH,
                  base_token="",
-                 hidden_char=DEFAULT_HIDDEN_CHAR):
+                 hidden_char=DEFAULT_HIDDEN_CHAR,
+                 break_on_time=0):
 
         """ Checker constructor
 
@@ -25,10 +26,13 @@ class TimeAuthChecker(object):
         :base_token: If you already found a part of the token, it's not necessary to start from the beguinning
                      if you use this option
         :hidden_char: The character you want to use for the displayed hidden char
+        :break_on_time: If you want to stop searching for other offset character when you find a character that took
+                        more than break_on_time time unit (in second, can be a float)
         """
         self._charset = charset
         self._token_length = token_length
         self._hidden_char = hidden_char
+        self._break_on_time = break_on_time
         self._token = [c for c in base_token] + [self._hidden_char for _ in range(self._token_length - len(base_token))]
 
     @classmethod
@@ -106,6 +110,9 @@ class TimeAuthChecker(object):
                 timings.append(t2 - t1)
                 best_candidate = self._charset[timings.index(max(timings))]
                 self._log(progress, offset, char, t1, t2, timings, i, best_candidate)
+                if self._break_on_time != 0:
+                    if (max(timings) > min(timings) + self._break_on_time):
+                        break
             found_char = self._charset[timings.index(max(timings))]
             self._token[offset] = found_char
             log.success("Found Char: %d:%x:%c - Best: %s - Avg: %s" % (
