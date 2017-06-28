@@ -20,7 +20,11 @@ class TimeAuthChecker(object):
 
         """ Checker constructor
 
-        :charset: TODO
+        :charset: The charset you need to defined the final token present characters
+        :token_length: The length of the result token
+        :base_token: If you already found a part of the token, it's not necessary to start from the beguinning
+                     if you use this option
+        :hidden_char: The character you want to use for the displayed hidden char
         """
         self._charset = charset
         self._token_length = token_length
@@ -29,18 +33,24 @@ class TimeAuthChecker(object):
 
     @classmethod
     def _avg(cls, l):
-        """ Calculate the average of an uniform list """
+
+        """ Calculate the average of an uniform list
+
+            :l: The list on which you want to calculate the average.
+        """
+
         return sum(l) / float(len(l))
 
     def request(self):
 
-        """ Do a request on a server to check the validity of a new token
+        """ Do a request on a server to check the validity of a new token """
 
-            :token: the new string token to check
-        """
         raise NotImplementedError('You should implement this one')
 
     def get_token(self):
+
+        """ Retrieve the string token stored in the object """
+
         return ''.join(self._token)
 
     def _get_token_offsets(self):
@@ -49,16 +59,19 @@ class TimeAuthChecker(object):
 
             exemple: whith self._token = "abc__" : _get_token_offsets() => [0, 2]
         """
+
         return range(len(''.join(self._token).rstrip(self._hidden_char)), self._token_length)
 
     def _get_timing(self):
 
         """ Get a time based unit """
+
         return time.time()
 
     def _log(self, progress, offset, char, t1, t2, timings, i, best_candidate):
 
         """ progress loading with average and other informations """
+
         progress.status("""
                         Testing %d/%d '%c' \\x%x
                         Current Flag: [%s]
@@ -80,6 +93,7 @@ class TimeAuthChecker(object):
     def process(self):
 
         """ Iterate on token_length and find more intresting char """
+
         log.info("Start guessing token ..")
         progress = log.progress('Auth ..')
         for offset in self._get_token_offsets():
@@ -104,4 +118,7 @@ class TimeAuthChecker(object):
         progress.success("DONE! %s" % (self.get_token()))
 
     def print_token(self):
+
+        """ Display the found token """
+
         log.success("Your token : [%s]" % self.get_token())
