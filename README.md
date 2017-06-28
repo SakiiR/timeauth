@@ -1,4 +1,4 @@
-# timeauth
+# Time Authentication Attack Tool
 
 Python Time Based Authentication Attack Tool
 
@@ -83,5 +83,8 @@ if __name__ == "__main__":
     a.process()
     a.print_token()
 ```
+### Todo
 
+* Add a Time Based SQL Injection Module
+* Add a Blind SQL Injection Module
 
