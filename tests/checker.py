@@ -17,7 +17,8 @@ class ExampleChecker(TimeAuthChecker):
         super(self.__class__, self).__init__(
                    charset="0123456789",
                    token_length=4,
-                   hidden_char="*"
+                   hidden_char="*",
+                   break_on_time=0.5
                )
 
 if __name__ == "__main__":
