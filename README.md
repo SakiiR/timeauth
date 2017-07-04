@@ -79,7 +79,7 @@ class ExampleChecker(TimeAuthChecker):
         context.log_level = 'info'
 
 if __name__ == "__main__":
-    a = RootmeChecker()
+    a = ExampleChecker()
     a.process()
     a.print_token()
 ```
