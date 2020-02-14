@@ -8,7 +8,7 @@ setup(
     name="Time Authentication",
     version='1.0',
     description='Python package to exploit time based authentication faster',
-    author='Erwan Dupard',
+    author='SakiiR SakiiR',
     author_email='sakiirlessons@gmail.com',
     url='https://github.com/SakiiR/timeauth',
     install_requires=[
