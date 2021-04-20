@@ -12,7 +12,7 @@ setup(
     author_email='sakiirlessons@gmail.com',
     url='https://github.com/SakiiR/timeauth',
     install_requires=[
-        'pwntools==3.5.1'
+        'pwntools==4.3.1'
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',
